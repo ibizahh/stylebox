@@ -1,0 +1,2267 @@
+/* 
+
+File: app-www.less
+
+This contains CSS used by the "www" app/site.
+
+*/
+/*  --------------------------------------------------------------------------------
+    File global-base.less
+    --------------------------------------------------------------------------------
+
+  This is the file that is the base CSS that can be shared among all apps/sites (www, blog, dreamforce).
+*/
+/* ------------- BOOTSTRAP (grid, responsive utilities) ------------- */
+/* BOOTSTRAP - MINIMAL COMPONENTS (reset, normalize, grid, utiliies) */
+/* need another color, but not in styleguide */
+/* BOOTSTRAP CUSTOMIZED - MINIMAL MIXINS (reset, normalize, grid, utiliies) 
+Some mixins listed still aren't used, but ok since it doesn't generate extra CSS */
+/*! normalize.css v3.0.1 | MIT License | git.io/normalize */
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  vertical-align: baseline;
+}
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+[hidden],
+template {
+  display: none;
+}
+a {
+  background: transparent;
+}
+a:active,
+a:hover {
+  outline: 0;
+}
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+b,
+strong {
+  font-weight: bold;
+}
+dfn {
+  font-style: italic;
+}
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+mark {
+  background: #ff0;
+  color: #000;
+}
+small {
+  font-size: 80%;
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+img {
+  border: 0;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+figure {
+  margin: 1em 40px;
+}
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+pre {
+  overflow: auto;
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+button {
+  overflow: visible;
+}
+button,
+select {
+  text-transform: none;
+}
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+input {
+  line-height: normal;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+legend {
+  border: 0;
+  padding: 0;
+}
+textarea {
+  overflow: auto;
+}
+optgroup {
+  font-weight: bold;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+td,
+th {
+  padding: 0;
+}
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html {
+  font-size: 10px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body {
+  font-family: ProximaNovaRegular, Tahoma, sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #525252;
+  background-color: #ffffff;
+}
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+a {
+  color: #009ddc;
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  color: #ffa500;
+  text-decoration: underline;
+}
+a:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+figure {
+  margin: 0;
+}
+img {
+  vertical-align: middle;
+}
+.img-responsive {
+  display: block;
+  width: 100% \9;
+  max-width: 100%;
+  height: auto;
+}
+.img-rounded {
+  border-radius: 6px;
+}
+.img-thumbnail {
+  padding: 4px;
+  line-height: 1.4;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  display: inline-block;
+  width: 100% \9;
+  max-width: 100%;
+  height: auto;
+}
+.img-circle {
+  border-radius: 50%;
+}
+hr {
+  margin-top: 22px;
+  margin-bottom: 22px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+.sr-only-focusable:active,
+.sr-only-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+}
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.row {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+  float: left;
+}
+.col-xs-12 {
+  width: 100%;
+}
+.col-xs-11 {
+  width: 91.66666667%;
+}
+.col-xs-10 {
+  width: 83.33333333%;
+}
+.col-xs-9 {
+  width: 75%;
+}
+.col-xs-8 {
+  width: 66.66666667%;
+}
+.col-xs-7 {
+  width: 58.33333333%;
+}
+.col-xs-6 {
+  width: 50%;
+}
+.col-xs-5 {
+  width: 41.66666667%;
+}
+.col-xs-4 {
+  width: 33.33333333%;
+}
+.col-xs-3 {
+  width: 25%;
+}
+.col-xs-2 {
+  width: 16.66666667%;
+}
+.col-xs-1 {
+  width: 8.33333333%;
+}
+.col-xs-pull-12 {
+  right: 100%;
+}
+.col-xs-pull-11 {
+  right: 91.66666667%;
+}
+.col-xs-pull-10 {
+  right: 83.33333333%;
+}
+.col-xs-pull-9 {
+  right: 75%;
+}
+.col-xs-pull-8 {
+  right: 66.66666667%;
+}
+.col-xs-pull-7 {
+  right: 58.33333333%;
+}
+.col-xs-pull-6 {
+  right: 50%;
+}
+.col-xs-pull-5 {
+  right: 41.66666667%;
+}
+.col-xs-pull-4 {
+  right: 33.33333333%;
+}
+.col-xs-pull-3 {
+  right: 25%;
+}
+.col-xs-pull-2 {
+  right: 16.66666667%;
+}
+.col-xs-pull-1 {
+  right: 8.33333333%;
+}
+.col-xs-pull-0 {
+  right: auto;
+}
+.col-xs-push-12 {
+  left: 100%;
+}
+.col-xs-push-11 {
+  left: 91.66666667%;
+}
+.col-xs-push-10 {
+  left: 83.33333333%;
+}
+.col-xs-push-9 {
+  left: 75%;
+}
+.col-xs-push-8 {
+  left: 66.66666667%;
+}
+.col-xs-push-7 {
+  left: 58.33333333%;
+}
+.col-xs-push-6 {
+  left: 50%;
+}
+.col-xs-push-5 {
+  left: 41.66666667%;
+}
+.col-xs-push-4 {
+  left: 33.33333333%;
+}
+.col-xs-push-3 {
+  left: 25%;
+}
+.col-xs-push-2 {
+  left: 16.66666667%;
+}
+.col-xs-push-1 {
+  left: 8.33333333%;
+}
+.col-xs-push-0 {
+  left: auto;
+}
+.col-xs-offset-12 {
+  margin-left: 100%;
+}
+.col-xs-offset-11 {
+  margin-left: 91.66666667%;
+}
+.col-xs-offset-10 {
+  margin-left: 83.33333333%;
+}
+.col-xs-offset-9 {
+  margin-left: 75%;
+}
+.col-xs-offset-8 {
+  margin-left: 66.66666667%;
+}
+.col-xs-offset-7 {
+  margin-left: 58.33333333%;
+}
+.col-xs-offset-6 {
+  margin-left: 50%;
+}
+.col-xs-offset-5 {
+  margin-left: 41.66666667%;
+}
+.col-xs-offset-4 {
+  margin-left: 33.33333333%;
+}
+.col-xs-offset-3 {
+  margin-left: 25%;
+}
+.col-xs-offset-2 {
+  margin-left: 16.66666667%;
+}
+.col-xs-offset-1 {
+  margin-left: 8.33333333%;
+}
+.col-xs-offset-0 {
+  margin-left: 0%;
+}
+@media (min-width: 768px) {
+  .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+    float: left;
+  }
+  .col-sm-12 {
+    width: 100%;
+  }
+  .col-sm-11 {
+    width: 91.66666667%;
+  }
+  .col-sm-10 {
+    width: 83.33333333%;
+  }
+  .col-sm-9 {
+    width: 75%;
+  }
+  .col-sm-8 {
+    width: 66.66666667%;
+  }
+  .col-sm-7 {
+    width: 58.33333333%;
+  }
+  .col-sm-6 {
+    width: 50%;
+  }
+  .col-sm-5 {
+    width: 41.66666667%;
+  }
+  .col-sm-4 {
+    width: 33.33333333%;
+  }
+  .col-sm-3 {
+    width: 25%;
+  }
+  .col-sm-2 {
+    width: 16.66666667%;
+  }
+  .col-sm-1 {
+    width: 8.33333333%;
+  }
+  .col-sm-pull-12 {
+    right: 100%;
+  }
+  .col-sm-pull-11 {
+    right: 91.66666667%;
+  }
+  .col-sm-pull-10 {
+    right: 83.33333333%;
+  }
+  .col-sm-pull-9 {
+    right: 75%;
+  }
+  .col-sm-pull-8 {
+    right: 66.66666667%;
+  }
+  .col-sm-pull-7 {
+    right: 58.33333333%;
+  }
+  .col-sm-pull-6 {
+    right: 50%;
+  }
+  .col-sm-pull-5 {
+    right: 41.66666667%;
+  }
+  .col-sm-pull-4 {
+    right: 33.33333333%;
+  }
+  .col-sm-pull-3 {
+    right: 25%;
+  }
+  .col-sm-pull-2 {
+    right: 16.66666667%;
+  }
+  .col-sm-pull-1 {
+    right: 8.33333333%;
+  }
+  .col-sm-pull-0 {
+    right: auto;
+  }
+  .col-sm-push-12 {
+    left: 100%;
+  }
+  .col-sm-push-11 {
+    left: 91.66666667%;
+  }
+  .col-sm-push-10 {
+    left: 83.33333333%;
+  }
+  .col-sm-push-9 {
+    left: 75%;
+  }
+  .col-sm-push-8 {
+    left: 66.66666667%;
+  }
+  .col-sm-push-7 {
+    left: 58.33333333%;
+  }
+  .col-sm-push-6 {
+    left: 50%;
+  }
+  .col-sm-push-5 {
+    left: 41.66666667%;
+  }
+  .col-sm-push-4 {
+    left: 33.33333333%;
+  }
+  .col-sm-push-3 {
+    left: 25%;
+  }
+  .col-sm-push-2 {
+    left: 16.66666667%;
+  }
+  .col-sm-push-1 {
+    left: 8.33333333%;
+  }
+  .col-sm-push-0 {
+    left: auto;
+  }
+  .col-sm-offset-12 {
+    margin-left: 100%;
+  }
+  .col-sm-offset-11 {
+    margin-left: 91.66666667%;
+  }
+  .col-sm-offset-10 {
+    margin-left: 83.33333333%;
+  }
+  .col-sm-offset-9 {
+    margin-left: 75%;
+  }
+  .col-sm-offset-8 {
+    margin-left: 66.66666667%;
+  }
+  .col-sm-offset-7 {
+    margin-left: 58.33333333%;
+  }
+  .col-sm-offset-6 {
+    margin-left: 50%;
+  }
+  .col-sm-offset-5 {
+    margin-left: 41.66666667%;
+  }
+  .col-sm-offset-4 {
+    margin-left: 33.33333333%;
+  }
+  .col-sm-offset-3 {
+    margin-left: 25%;
+  }
+  .col-sm-offset-2 {
+    margin-left: 16.66666667%;
+  }
+  .col-sm-offset-1 {
+    margin-left: 8.33333333%;
+  }
+  .col-sm-offset-0 {
+    margin-left: 0%;
+  }
+}
+@media (min-width: 992px) {
+  .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+    float: left;
+  }
+  .col-md-12 {
+    width: 100%;
+  }
+  .col-md-11 {
+    width: 91.66666667%;
+  }
+  .col-md-10 {
+    width: 83.33333333%;
+  }
+  .col-md-9 {
+    width: 75%;
+  }
+  .col-md-8 {
+    width: 66.66666667%;
+  }
+  .col-md-7 {
+    width: 58.33333333%;
+  }
+  .col-md-6 {
+    width: 50%;
+  }
+  .col-md-5 {
+    width: 41.66666667%;
+  }
+  .col-md-4 {
+    width: 33.33333333%;
+  }
+  .col-md-3 {
+    width: 25%;
+  }
+  .col-md-2 {
+    width: 16.66666667%;
+  }
+  .col-md-1 {
+    width: 8.33333333%;
+  }
+  .col-md-pull-12 {
+    right: 100%;
+  }
+  .col-md-pull-11 {
+    right: 91.66666667%;
+  }
+  .col-md-pull-10 {
+    right: 83.33333333%;
+  }
+  .col-md-pull-9 {
+    right: 75%;
+  }
+  .col-md-pull-8 {
+    right: 66.66666667%;
+  }
+  .col-md-pull-7 {
+    right: 58.33333333%;
+  }
+  .col-md-pull-6 {
+    right: 50%;
+  }
+  .col-md-pull-5 {
+    right: 41.66666667%;
+  }
+  .col-md-pull-4 {
+    right: 33.33333333%;
+  }
+  .col-md-pull-3 {
+    right: 25%;
+  }
+  .col-md-pull-2 {
+    right: 16.66666667%;
+  }
+  .col-md-pull-1 {
+    right: 8.33333333%;
+  }
+  .col-md-pull-0 {
+    right: auto;
+  }
+  .col-md-push-12 {
+    left: 100%;
+  }
+  .col-md-push-11 {
+    left: 91.66666667%;
+  }
+  .col-md-push-10 {
+    left: 83.33333333%;
+  }
+  .col-md-push-9 {
+    left: 75%;
+  }
+  .col-md-push-8 {
+    left: 66.66666667%;
+  }
+  .col-md-push-7 {
+    left: 58.33333333%;
+  }
+  .col-md-push-6 {
+    left: 50%;
+  }
+  .col-md-push-5 {
+    left: 41.66666667%;
+  }
+  .col-md-push-4 {
+    left: 33.33333333%;
+  }
+  .col-md-push-3 {
+    left: 25%;
+  }
+  .col-md-push-2 {
+    left: 16.66666667%;
+  }
+  .col-md-push-1 {
+    left: 8.33333333%;
+  }
+  .col-md-push-0 {
+    left: auto;
+  }
+  .col-md-offset-12 {
+    margin-left: 100%;
+  }
+  .col-md-offset-11 {
+    margin-left: 91.66666667%;
+  }
+  .col-md-offset-10 {
+    margin-left: 83.33333333%;
+  }
+  .col-md-offset-9 {
+    margin-left: 75%;
+  }
+  .col-md-offset-8 {
+    margin-left: 66.66666667%;
+  }
+  .col-md-offset-7 {
+    margin-left: 58.33333333%;
+  }
+  .col-md-offset-6 {
+    margin-left: 50%;
+  }
+  .col-md-offset-5 {
+    margin-left: 41.66666667%;
+  }
+  .col-md-offset-4 {
+    margin-left: 33.33333333%;
+  }
+  .col-md-offset-3 {
+    margin-left: 25%;
+  }
+  .col-md-offset-2 {
+    margin-left: 16.66666667%;
+  }
+  .col-md-offset-1 {
+    margin-left: 8.33333333%;
+  }
+  .col-md-offset-0 {
+    margin-left: 0%;
+  }
+}
+@media (min-width: 1200px) {
+  .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
+    float: left;
+  }
+  .col-lg-12 {
+    width: 100%;
+  }
+  .col-lg-11 {
+    width: 91.66666667%;
+  }
+  .col-lg-10 {
+    width: 83.33333333%;
+  }
+  .col-lg-9 {
+    width: 75%;
+  }
+  .col-lg-8 {
+    width: 66.66666667%;
+  }
+  .col-lg-7 {
+    width: 58.33333333%;
+  }
+  .col-lg-6 {
+    width: 50%;
+  }
+  .col-lg-5 {
+    width: 41.66666667%;
+  }
+  .col-lg-4 {
+    width: 33.33333333%;
+  }
+  .col-lg-3 {
+    width: 25%;
+  }
+  .col-lg-2 {
+    width: 16.66666667%;
+  }
+  .col-lg-1 {
+    width: 8.33333333%;
+  }
+  .col-lg-pull-12 {
+    right: 100%;
+  }
+  .col-lg-pull-11 {
+    right: 91.66666667%;
+  }
+  .col-lg-pull-10 {
+    right: 83.33333333%;
+  }
+  .col-lg-pull-9 {
+    right: 75%;
+  }
+  .col-lg-pull-8 {
+    right: 66.66666667%;
+  }
+  .col-lg-pull-7 {
+    right: 58.33333333%;
+  }
+  .col-lg-pull-6 {
+    right: 50%;
+  }
+  .col-lg-pull-5 {
+    right: 41.66666667%;
+  }
+  .col-lg-pull-4 {
+    right: 33.33333333%;
+  }
+  .col-lg-pull-3 {
+    right: 25%;
+  }
+  .col-lg-pull-2 {
+    right: 16.66666667%;
+  }
+  .col-lg-pull-1 {
+    right: 8.33333333%;
+  }
+  .col-lg-pull-0 {
+    right: auto;
+  }
+  .col-lg-push-12 {
+    left: 100%;
+  }
+  .col-lg-push-11 {
+    left: 91.66666667%;
+  }
+  .col-lg-push-10 {
+    left: 83.33333333%;
+  }
+  .col-lg-push-9 {
+    left: 75%;
+  }
+  .col-lg-push-8 {
+    left: 66.66666667%;
+  }
+  .col-lg-push-7 {
+    left: 58.33333333%;
+  }
+  .col-lg-push-6 {
+    left: 50%;
+  }
+  .col-lg-push-5 {
+    left: 41.66666667%;
+  }
+  .col-lg-push-4 {
+    left: 33.33333333%;
+  }
+  .col-lg-push-3 {
+    left: 25%;
+  }
+  .col-lg-push-2 {
+    left: 16.66666667%;
+  }
+  .col-lg-push-1 {
+    left: 8.33333333%;
+  }
+  .col-lg-push-0 {
+    left: auto;
+  }
+  .col-lg-offset-12 {
+    margin-left: 100%;
+  }
+  .col-lg-offset-11 {
+    margin-left: 91.66666667%;
+  }
+  .col-lg-offset-10 {
+    margin-left: 83.33333333%;
+  }
+  .col-lg-offset-9 {
+    margin-left: 75%;
+  }
+  .col-lg-offset-8 {
+    margin-left: 66.66666667%;
+  }
+  .col-lg-offset-7 {
+    margin-left: 58.33333333%;
+  }
+  .col-lg-offset-6 {
+    margin-left: 50%;
+  }
+  .col-lg-offset-5 {
+    margin-left: 41.66666667%;
+  }
+  .col-lg-offset-4 {
+    margin-left: 33.33333333%;
+  }
+  .col-lg-offset-3 {
+    margin-left: 25%;
+  }
+  .col-lg-offset-2 {
+    margin-left: 16.66666667%;
+  }
+  .col-lg-offset-1 {
+    margin-left: 8.33333333%;
+  }
+  .col-lg-offset-0 {
+    margin-left: 0%;
+  }
+}
+.clearfix:before,
+.clearfix:after,
+.container:before,
+.container:after,
+.container-fluid:before,
+.container-fluid:after,
+.row:before,
+.row:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after,
+.container:after,
+.container-fluid:after,
+.row:after {
+  clear: both;
+}
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.pull-right {
+  float: right !important;
+}
+.pull-left {
+  float: left !important;
+}
+.hide {
+  display: none !important;
+}
+.show {
+  display: block !important;
+}
+.invisible {
+  visibility: hidden;
+}
+.text-hide {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+.affix {
+  position: fixed;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+@-ms-viewport {
+  width: device-width;
+}
+.visible-xs,
+.visible-sm,
+.visible-md,
+.visible-lg {
+  display: none !important;
+}
+.visible-xs-block,
+.visible-xs-inline,
+.visible-xs-inline-block,
+.visible-sm-block,
+.visible-sm-inline,
+.visible-sm-inline-block,
+.visible-md-block,
+.visible-md-inline,
+.visible-md-inline-block,
+.visible-lg-block,
+.visible-lg-inline,
+.visible-lg-inline-block {
+  display: none !important;
+}
+@media (max-width: 767px) {
+  .visible-xs {
+    display: block !important;
+  }
+  table.visible-xs {
+    display: table;
+  }
+  tr.visible-xs {
+    display: table-row !important;
+  }
+  th.visible-xs,
+  td.visible-xs {
+    display: table-cell !important;
+  }
+}
+@media (max-width: 767px) {
+  .visible-xs-block {
+    display: block !important;
+  }
+}
+@media (max-width: 767px) {
+  .visible-xs-inline {
+    display: inline !important;
+  }
+}
+@media (max-width: 767px) {
+  .visible-xs-inline-block {
+    display: inline-block !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .visible-sm {
+    display: block !important;
+  }
+  table.visible-sm {
+    display: table;
+  }
+  tr.visible-sm {
+    display: table-row !important;
+  }
+  th.visible-sm,
+  td.visible-sm {
+    display: table-cell !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .visible-sm-block {
+    display: block !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .visible-sm-inline {
+    display: inline !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .visible-sm-inline-block {
+    display: inline-block !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .visible-md {
+    display: block !important;
+  }
+  table.visible-md {
+    display: table;
+  }
+  tr.visible-md {
+    display: table-row !important;
+  }
+  th.visible-md,
+  td.visible-md {
+    display: table-cell !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .visible-md-block {
+    display: block !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .visible-md-inline {
+    display: inline !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .visible-md-inline-block {
+    display: inline-block !important;
+  }
+}
+@media (min-width: 1200px) {
+  .visible-lg {
+    display: block !important;
+  }
+  table.visible-lg {
+    display: table;
+  }
+  tr.visible-lg {
+    display: table-row !important;
+  }
+  th.visible-lg,
+  td.visible-lg {
+    display: table-cell !important;
+  }
+}
+@media (min-width: 1200px) {
+  .visible-lg-block {
+    display: block !important;
+  }
+}
+@media (min-width: 1200px) {
+  .visible-lg-inline {
+    display: inline !important;
+  }
+}
+@media (min-width: 1200px) {
+  .visible-lg-inline-block {
+    display: inline-block !important;
+  }
+}
+@media (max-width: 767px) {
+  .hidden-xs {
+    display: none !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .hidden-sm {
+    display: none !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .hidden-md {
+    display: none !important;
+  }
+}
+@media (min-width: 1200px) {
+  .hidden-lg {
+    display: none !important;
+  }
+}
+.visible-print {
+  display: none !important;
+}
+@media print {
+  .visible-print {
+    display: block !important;
+  }
+  table.visible-print {
+    display: table;
+  }
+  tr.visible-print {
+    display: table-row !important;
+  }
+  th.visible-print,
+  td.visible-print {
+    display: table-cell !important;
+  }
+}
+.visible-print-block {
+  display: none !important;
+}
+@media print {
+  .visible-print-block {
+    display: block !important;
+  }
+}
+.visible-print-inline {
+  display: none !important;
+}
+@media print {
+  .visible-print-inline {
+    display: inline !important;
+  }
+}
+.visible-print-inline-block {
+  display: none !important;
+}
+@media print {
+  .visible-print-inline-block {
+    display: inline-block !important;
+  }
+}
+@media print {
+  .hidden-print {
+    display: none !important;
+  }
+}
+/* ------------- ELEMENTS FOLLOWING STYLEGUIDE ------------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: ProximaNovaLight, Tahoma, sans-serif;
+  font-weight: normal;
+  color: #333333;
+  line-height: 125%;
+  margin: 0 0 10px;
+}
+h1 {
+  font-size: 32px;
+  line-height: 115%;
+}
+h2 {
+  font-size: 32px;
+  line-height: 115%;
+}
+h3 {
+  font-size: 30px;
+}
+h4 {
+  font-size: 22px;
+}
+h5 {
+  font-size: 18px;
+}
+h6 {
+  font-size: 16px;
+}
+a,
+a:visited {
+  font-family: ProximaNovaSemiBold, Tahoma, sans-serif;
+  text-decoration: none;
+  color: #009ddc;
+}
+a:hover {
+  color: #ffa500;
+  text-decoration: none;
+  cursor: pointer;
+}
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+  font-family: ProximaNovaLight, Tahoma, sans-serif;
+}
+/* unbold h1/h2/h3 links */
+p {
+  margin: 0 0 26px;
+}
+/* ------------- TEXT ------------- */
+@font-face {
+  font-family: 'ProximaNovaRegular';
+  src: url('http://www.sfdcstatic.com/system/shared/common/assets/fonts/ProximaNova/proximanova-reg-webfont.eot');
+  src: url('http://www.sfdcstatic.com/system/shared/common/assets/fonts/ProximaNova/proximanova-reg-webfont.eot?#iefix') format('embedded-opentype'), url('http://www.sfdcstatic.com/system/shared/common/assets/fonts/ProximaNova/proximanova-reg-webfont.woff') format('woff'), url('http://www.sfdcstatic.com/system/shared/common/assets/fonts/ProximaNova/proximanova-reg-webfont.ttf') format('truetype'), url('http://www.sfdcstatic.com/system/shared/common/assets/fonts/ProximaNova/proximanova-reg-webfont.svg#ProximaNovaRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ProximaNovaLight';
+  src: url('http://www.sfdcstatic.com/system/shared/common/assets/fonts/ProximaNova/proximanova-light-webfont.eot');
+  src: url('http://www.sfdcstatic.com/system/shared/common/assets/fonts/ProximaNova/proximanova-light-webfont.eot?#iefix') format('embedded-opentype'), url('http://www.sfdcstatic.com/system/shared/common/assets/fonts/ProximaNova/proximanova-light-webfont.woff') format('woff'), url('http://www.sfdcstatic.com/system/shared/common/assets/fonts/ProximaNova/proximanova-light-webfont.ttf') format('truetype'), url('http://www.sfdcstatic.com/system/shared/common/assets/fonts/ProximaNova/proximanova-light-webfont.svg#ProximaNovaLight') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ProximaNovaSemiBold';
+  src: url('http://www.sfdcstatic.com/system/shared/common/assets/fonts/ProximaNova/proximanova-sbold-webfont.eot');
+  src: url('http://www.sfdcstatic.com/system/shared/common/assets/fonts/ProximaNova/proximanova-sbold-webfont.eot?#iefix') format('embedded-opentype'), url('http://www.sfdcstatic.com/system/shared/common/assets/fonts/ProximaNova/proximanova-sbold-webfont.woff') format('woff'), url('http://www.sfdcstatic.com/system/shared/common/assets/fonts/ProximaNova/proximanova-sbold-webfont.ttf') format('truetype'), url('http://www.sfdcstatic.com/system/shared/common/assets/fonts/ProximaNova/proximanova-sbold-webfont.svg#ProximaNovaSemiBold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/**
+    @Name       bold, normal, italic, smaller, larger, cap
+    @Tags       text, font, bold, em, normal, italic, smaller, larger, uppercase, capitalization
+    @Example    <div class="bold">Text with BOLD style</div><div class="normal">Text with NORMAL style</div><div class="italic">Text with ITALIC style</div><div class="smaller">Text with SMALLER style</div><div class="larger">Text with LARGER style</div><div class="cap">Text with CAP style</div>
+*/
+/* For ProximaNova font change where <a> tags use ProximaNovaSemibold and can't be bolded.  Can remove when we remove all "bold" classes from <a> tags. */
+b,
+strong,
+.bold {
+  font-family: ProximaNovaSemibold, Tahoma, sans-serif !important;
+  font-weight: normal !important;
+}
+.normal {
+  font-weight: normal !important;
+  font-style: normal !important;
+}
+.italic {
+  font-style: italic !important;
+}
+.smaller {
+  font-size: 85% !important;
+}
+.larger {
+  font-size: 125% !important;
+}
+.cap {
+  text-transform: uppercase;
+}
+/**
+    @Name       lineheight-{#}
+    @Tags       text, font, line, height
+    @Example    <p class="lineheight-100">Text with<br>line-height-100.</p><p class="lineheight-125">Text with<br>line-height-125.</p><p class="lineheight-150">Text with<br>line-height-150.</p>
+    @Comments   Use to override line heights of existing styles.  Available line height are 0, 1, 100, 125, 150, 200, 225.  Class names are: lineheight-0, lineheight-1, lineheight-100, lineheight-125, line-height-150, line-height-200, line-height-225
+*/
+.lineheight-0 {
+  line-height: 0 !important;
+}
+.lineheight-1 {
+  line-height: 1 !important;
+}
+.lineheight-100 {
+  line-height: 100% !important;
+}
+.lineheight-125 {
+  line-height: 125% !important;
+}
+.lineheight-150 {
+  line-height: 150% !important;
+}
+.lineheight-200 {
+  line-height: 200% !important;
+}
+.lineheight-225 {
+  line-height: 225% !important;
+}
+/* ------------- LAYOUT ------------- */
+/**
+    @Name       flush-margin, flush-margin-top, flush-all, flush-padding
+    @Tags       layout, flush, margin, padding
+    @Example    <div class="flush-margin">This DIV has margins removed.</div><div class="flush-padding">This DIV has padding removed.</div><div class="flush-all">This DIV has margins and padding removed.</div><div class="flush-margin-top">This DIV has top margin removed.</div>
+    @Comments   Add these classes to styles to remove margin or margin/padding from an existing class.
+*/
+.flush-margin {
+  margin: 0 !important;
+}
+.flush-margin-top {
+  margin-top: 0 !important;
+}
+.flush-all {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.flush-padding {
+  padding: 0 !important;
+}
+/**
+    @Name       nowrap
+    @Tags       text, nowrap
+    @Example    <span class="nowrap">This very long sentence has the class NOWRAP on it</span>
+*/
+.nowrap {
+  white-space: nowrap;
+}
+/**
+    @Name       relative, absolute, fixed, static
+    @Tags       layout, position, relative, absolute, fixed, static
+    @Example    <div class="relative">Div with RELATIVE<div class="absolute" style="top:30px; left:30px;">Div with ABSOLUTE inside the relative div</div></div><div class="relative">Div with FIXED</div><div class="relative">Div with STATIC</div>
+*/
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+.fixed {
+  position: fixed;
+  z-index: 1000;
+}
+.static {
+  position: static;
+}
+/**
+    @Name       abs-top-0, abs-right-0, abs-bottom-0, abs-left-0
+    @Tags       layout, absolution, position, top, right, bottom, left
+    @Example    <div class="relative"><img class="absolute abs-left-0" src="https://cdn4.iconfinder.com/data/icons/48x48-free-object-icons/48/Butterfly.png"><img class="absolute abs-right-0" src="https://cdn4.iconfinder.com/data/icons/48x48-free-object-icons/48/Butterfly.png"></div>
+    @Comments   Set the top, right, bottom or left position an absolute position element.
+*/
+.abs-top-0 {
+  top: 0;
+}
+.abs-right-0 {
+  right: 0;
+}
+.abs-bottom-0 {
+  bottom: 0;
+}
+.abs-left-0 {
+  left: 0;
+}
+/**
+    @Name       padding-all-{#}, top-{#}, bottom-{#}, left-{#}, right-{#}
+    @Tags       layout, padding, indent
+    @Example    <div class="padding-all-10">ALL PADDING 10px</div><div class="top-20">TOP PADDING 20px</div><div class="bottom-20">BOTTOM PADDING 20px</div><div class="left-20">LEFT PADDING 20px</div><div class="right-20">RIGHT PADDING 20px</div>
+    @Comments   Padding numbers supported are 5, 10, 15, 20, 25, 30
+*/
+.padding-all-5 {
+  padding: 5px;
+}
+.padding-all-10 {
+  padding: 10px;
+}
+.padding-all-15 {
+  padding: 15px;
+}
+.padding-all-20 {
+  padding: 20px;
+}
+.padding-all-25 {
+  padding: 25px;
+}
+.padding-all-30 {
+  padding: 30px;
+}
+.left-0 {
+  padding-left: 0px !important;
+}
+.left-5 {
+  padding-left: 5px !important;
+}
+.left-10 {
+  padding-left: 10px !important;
+}
+.left-15 {
+  padding-left: 15px !important;
+}
+.left-20 {
+  padding-left: 20px !important;
+}
+.left-25 {
+  padding-left: 25px !important;
+}
+.left-30 {
+  padding-left: 30px !important;
+}
+.right-0 {
+  padding-right: 0px !important;
+}
+.right-5 {
+  padding-right: 5px !important;
+}
+.right-10 {
+  padding-right: 10px !important;
+}
+.right-15 {
+  padding-right: 15px !important;
+}
+.right-20 {
+  padding-right: 20px !important;
+}
+.right-25 {
+  padding-right: 25px !important;
+}
+.right-30 {
+  padding-right: 30px !important;
+}
+.top-0 {
+  padding-top: 0px !important;
+}
+.top-5 {
+  padding-top: 5px !important;
+}
+.top-10 {
+  padding-top: 10px !important;
+}
+.top-15 {
+  padding-top: 15px !important;
+}
+.top-20 {
+  padding-top: 20px !important;
+}
+.top-25 {
+  padding-top: 25px !important;
+}
+.top-30 {
+  padding-top: 30px !important;
+}
+.bottom-0 {
+  padding-bottom: 0px !important;
+}
+.bottom-5 {
+  padding-bottom: 5px !important;
+}
+.bottom-10 {
+  padding-bottom: 10px !important;
+}
+.bottom-15 {
+  padding-bottom: 15px !important;
+}
+.bottom-20 {
+  padding-bottom: 20px !important;
+}
+.bottom-25 {
+  padding-bottom: 25px !important;
+}
+.bottom-30 {
+  padding-bottom: 30px !important;
+}
+/**
+    @Name       margin-all-{#}, margin-top-{#}, margin-bottom-{#}, margin-left-{#}, margin-right-{#}
+    @Tags       layout, margin, indent
+    @Example    <div class="margin-all-10">ALL MARGINS 10px</div><div class="margin-top-20">TOP MARGIN 20px</div><div class="margin-bottom-20">BOTTOM MARGIN 20px</div><div class="margin-left-20">LEFT MARGIN 20px</div><div class="margin-right-20">RIGHT MARGIN 20px</div>
+    @Comments   Margin numbers supported are 5, 10, 15, 20, 25, 30
+*/
+.margin-all-5 {
+  margin: 5px;
+}
+.margin-all-10 {
+  margin: 10px;
+}
+.margin-all-15 {
+  margin: 15px;
+}
+.margin-all-20 {
+  margin: 20px;
+}
+.margin-all-25 {
+  margin: 25px;
+}
+.margin-all-30 {
+  margin: 30px;
+}
+.margin-left-5 {
+  margin-left: 5px !important;
+}
+.margin-left-10 {
+  margin-left: 10px !important;
+}
+.margin-left-15 {
+  margin-left: 15px !important;
+}
+.margin-left-20 {
+  margin-left: 20px !important;
+}
+.margin-left-25 {
+  margin-left: 25px !important;
+}
+.margin-left-30 {
+  margin-left: 30px !important;
+}
+.margin-right-5 {
+  margin-right: 5px !important;
+}
+.margin-right-10 {
+  margin-right: 10px !important;
+}
+.margin-right-15 {
+  margin-right: 15px !important;
+}
+.margin-right-20 {
+  margin-right: 20px !important;
+}
+.margin-right-25 {
+  margin-right: 25px !important;
+}
+.margin-right-30 {
+  margin-right: 30px !important;
+}
+.margin-top-5 {
+  margin-top: 5px !important;
+}
+.margin-top-10 {
+  margin-top: 10px !important;
+}
+.margin-top-15 {
+  margin-top: 15px !important;
+}
+.margin-top-20 {
+  margin-top: 20px !important;
+}
+.margin-top-25 {
+  margin-top: 25px !important;
+}
+.margin-top-30 {
+  margin-top: 30px !important;
+}
+.margin-bottom-5 {
+  margin-bottom: 5px !important;
+}
+.margin-bottom-10 {
+  margin-bottom: 10px !important;
+}
+.margin-bottom-15 {
+  margin-bottom: 15px !important;
+}
+.margin-bottom-20 {
+  margin-bottom: 20px !important;
+}
+.margin-bottom-25 {
+  margin-bottom: 25px !important;
+}
+.margin-bottom-30 {
+  margin-bottom: 30px !important;
+}
+/* ------------- ALIGN ------------- */
+/**
+    @Name       valign-top, valign-middle, valign-bottom
+    @Tags       layout, vertical, alignment
+    @Example    <img class="valign-top" src="https://cdn4.iconfinder.com/data/icons/48x48-free-object-icons/48/Butterfly.png">Icon is valign-top to this text<br/><img class="valign-middle" src="https://cdn4.iconfinder.com/data/icons/48x48-free-object-icons/48/Butterfly.png">Icon is valign-middle to this text<br><img class="valign-bottom" src="https://cdn4.iconfinder.com/data/icons/48x48-free-object-icons/48/Butterfly.png">Icon is valign-bottom to this text
+    @Comments   Also available indent numbers are 5, 10, 15, 25, 30 (plus special ones left-60, right-60)
+*/
+.valign-bottom {
+  vertical-align: bottom !important;
+}
+.valign-middle {
+  vertical-align: middle !important;
+}
+.valign-top {
+  vertical-align: top !important;
+}
+/**
+    @Name       text-center, text-left, text-right
+    @Tags       layout, text, alignment, center, left, right
+    @Example    <p class="text-center">This text is centered</p><br><p class="text-left">This text is left</p><br><p class="text-right">This text is right</p>
+*/
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+/**
+    @Name       vertical, horizontal
+    @Tags       list, ul, horizontal, vertical
+    @Example    <ul class="vertical"><li>VERTICAL-item</li><li>VERTICAL-item</li><li>VERTICAL-item</li></ul>
+                <br><ul class="horizontal"><li>HORIZONTAL-item</li><li>HORIZONTAL-item</li><li>HORIZONTAL-item</li></ul>
+*/
+ul.horizontal,
+ul.vertical,
+ul.horizontal li,
+ul.vertical li {
+  list-style: none outside none;
+  margin: 0;
+  padding: 0;
+}
+ul.horizontal li {
+  display: inline;
+  float: left;
+}
+/**
+    @Name       border, border-all, border-{pos}
+    @Tags       border
+    @Example    <div class="border">DIV has border (same as border-all)</div><br><div class="border-top">DIV has border-top</div><br><div class="border-bottom">DIV has border-bottom</div><br><div class="border-right">DIV has border-right</div><br><div class="border-left">DIV has border-left</div>
+*/
+.border,
+.border-all {
+  border: 1px solid #e5e5e5;
+}
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-right {
+  border-right: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+.border-left {
+  border-left: 1px solid #e5e5e5;
+}
+/**
+    @Name       border-{pos}-none
+    @Tags       border, remove
+    @Example    <div class="border border-top-none">DIV has border with top removed</div><br/><div class="border border-bottom-none">DIV has border with bottom removed</div><br/><div class="border border-left-none">DIV has border with left removed</div><br/><div class="border border-right-none">DIV has border with right removed</div><br/><div class="border border-all-none">DIV has all borders removed</div>
+    @Comments   Removes the border from the top, bottom, left or right.  Class names: border-top-none, border-bottom-none, border-left-none, border-right-none, border-all-none.
+*/
+.border-top-none {
+  border-top: none;
+}
+.border-bottom-none {
+  border-bottom: none;
+}
+.border-left-none {
+  border-left: none;
+}
+.border-right-none {
+  border-right: none;
+}
+.border-all-none {
+  border: none !important;
+}
+/**
+    @Name       border-width-{#}
+    @Tags       border width, thickness
+    @Example    <div class="border border-width-1">border border-width-1</div><br/><div class="border border-width-2">border border-width-2</div><br/><div class="border border-width-3">border border-width-3</div><br/>
+    @Comments   Class names: border-width-1, border-width-2, border-width-3, border-width-5
+*/
+.border-width-1 {
+  border-width: 1px !important;
+}
+.border-width-2 {
+  border-width: 2px !important;
+}
+.border-width-3 {
+  border-width: 3px !important;
+}
+.border-width-5 {
+  border-width: 5px !important;
+}
+/**
+    @Name       radius-{#} (radius-3, radius-5, radius-7, radius-10, radius-15)
+    @Tags       border,radius
+    @Example    <div class="border radius-3">RADIUS 3</div><br/><div class="border radius-5">RADIUS 5</div><br/><div class="border radius-7">RADIUS 7</div><br/><div class="border radius-10">RADIUS 10</div><br/><div class="border radius-15">RADIUS 15</div>
+*/
+.radius-3 {
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+.radius-5 {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+.radius-7 {
+  border-radius: 7px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+}
+.radius-10 {
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+}
+.radius-15 {
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+}
+/**
+    @Name       radius-flat-{top} (radius-flat-top, radius-flat-right, radius-flat-bottom, radius-flat-left)
+    @Tags       border,radius
+    @Example    <br/><div class="border radius-flat-top">RADIUS FLAT TOP</div><br/><div class="border radius-flat-bottom">RADIUS FLAT BOTTOM</div><br/><div class="border radius-flat-right">RADIUS FLAT RIGHT</div><br/><div class="border radius-flat-left">RADIUS FLAT LEFT</div>
+*/
+.radius-flat-top {
+  border-radius: 0 0 8px 8px;
+  -moz-border-radius: 0 0 8px 8px;
+  -webkit-border-radius: 0 0 8px 8px;
+}
+.radius-flat-bottom {
+  border-radius: 8px 8px 0 0;
+  -moz-border-radius: 8px 8px 0 0;
+  -webkit-border-radius: 8px 8px 0 0;
+}
+.radius-flat-left {
+  border-radius: 0 8px 8px 0;
+  -moz-border-radius: 0 8px 8px 0;
+  -webkit-border-radius: 0 8px 8px 0;
+}
+.radius-flat-right {
+  border-radius: 8px 0 0 8px;
+  -moz-border-radius: 8px 0 0 8px;
+  -webkit-border-radius: 8px 0 0 8px;
+}
+.radius-flat-all {
+  border-radius: 0 0 0 0!important;
+  -moz-border-radius: 0 0 0 0!important;
+  -webkit-border-radius: 0 0 0 0!important;
+}
+.radius-flat-top-5 {
+  border-radius: 0 0 5px 5px;
+  -moz-border-radius: 0 0 5px 5px;
+  -webkit-border-radius: 0 0 5px 5px;
+}
+.radius-flat-bottom-5 {
+  border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
+  -webkit-border-radius: 5px 5px 0 0;
+}
+.radius-flat-left-5 {
+  border-radius: 0 5px 5px 0;
+  -moz-border-radius: 0 5px 5px 0;
+  -webkit-border-radius: 0 5px 5px 0;
+}
+.radius-flat-right-5 {
+  border-radius: 5px 0 0 5px;
+  -moz-border-radius: 5px 0 0 5px;
+  -webkit-border-radius: 5px 0 0 5px;
+}
+/* ------------- SHADOWS and SHADING ------------- */
+/**
+    @Name       shadow-surround-3, shadow-surround-5, shadow-surround-10, drop-shadow-5
+    @Tags       shadow, surround
+    @Example    <div class="border drop-shadow-5">DIV with drop-shadow-5</div>
+            <br/><div class="border shadow-surround-5">DIV with shadow-surround-5</div>
+            <br/><div class="border shadow-surround-10">DIV with shadow-surround-10</div>
+            <br/>product screenshot usage: **<br/>border-3 radius-flat-all shadow-surround-dark-3<br/><img src="https://cdn4.iconfinder.com/data/icons/48x48-free-object-icons/48/Butterfly.png" class="border-3 radius-flat-all shadow-surround-dark-3" />
+
+    @Comments   Adds a surround shadow. Used around borders and buttons.
+*/
+.shadow-surround-3 {
+  margin: 5px;
+  box-shadow: 0 0 3px 1px #d7d6d5;
+  -moz-box-shadow: 0 0 3px 1px #d7d6d5;
+  -webkit-box-shadow: 0 0 3px 1px #d7d6d5;
+}
+.shadow-surround-5 {
+  margin: 5px;
+  box-shadow: 0 0 5px 2px #d7d6d5;
+  -moz-box-shadow: 0 0 5px 2px #d7d6d5;
+  -webkit-box-shadow: 0 0 5px 2px #d7d6d5;
+}
+.shadow-surround-10 {
+  margin: 10px;
+  box-shadow: 0 0 10px 5px #d7d6d5;
+  -moz-box-shadow: 0 0 10px 5px #d7d6d5;
+  -webkit-box-shadow: 0 0 10px 5px #d7d6d5;
+}
+.drop-shadow-5 {
+  box-shadow: 3px 3px 5px 0px #D7D6D5;
+  -moz-box-shadow: 3px 3px 5px 0px #D7D6D5;
+  -webkit-box-shadow: 3px 3px 5px 0px #D7D6D5;
+}
+/* need -5 spread to make background shading not be too dark */
+.shadow-surround-dark-3 {
+  margin: 5px;
+  box-shadow: 0 0 3px 1px #bbbbbb;
+  -moz-box-shadow: 0 0 3px 1px #bbbbbb;
+  -webkit-box-shadow: 0 0 3px 1px #bbbbbb;
+}
+/**
+    @Name       shadow-inset
+    @Tags       vignette, inset, shadow
+    @Example    A "10px" inset shadow <span class="shadow-inset" style="font-size:10px;"><img src="https://cdn4.iconfinder.com/data/icons/48x48-free-object-icons/48/Butterfly.png" height="100"></span>
+            <br/>A "22px" inset shadow <span class="shadow-inset" style="font-size:22px;"><img src="https://cdn4.iconfinder.com/data/icons/48x48-free-object-icons/48/Butterfly.png" height="100"></span>
+    @Comments   Only in modern browsers.  To increase the inset shadow depth, add class "font-xx", since depth is based on EMs.  The image is always turned into a block display element. Note: links inside vignette may need higher z-index to be clickable.
+*/
+.shadow-inset {
+  position: relative;
+  display: block;
+}
+.shadow-inset img {
+  display: block;
+}
+.shadow-inset:after {
+  -moz-box-shadow: inset 0 0 3em #444;
+  -webkit-box-shadow: inset 0 0 3em #444;
+  box-shadow: inset 0 0 3em #444;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  content: "";
+}
+/**
+    @Name       opacity-{#} (opacity-85, opacity-65, opacity-10)
+    @Tags       opacity, fade
+    @Example    <div class="bg-blue opacity-85">opacity-85 on a blue background</div>
+            <br/><div class="bg-blue opacity-65">opacity-65 on a blue background</div>
+            <br/><div class="bg-blue opacity-10">opacity-10 on a blue background</div>
+    @Comments   Adds an opacity filter to the text and background.
+*/
+.opacity-10 {
+  opacity: 0.10;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=10);
+  /*-ms-filter must come before filter*/
+  filter: alpha(opacity=10);
+}
+.opacity-65 {
+  opacity: 0.65;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=65);
+  /*-ms-filter must come before filter*/
+  filter: alpha(opacity=65);
+}
+.opacity-85 {
+  opacity: 0.85;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=85);
+  /*-ms-filter must come before filter*/
+  filter: alpha(opacity=85);
+}
+/* ------------- BACKGROUNDS ------------- */
+/**
+    @Name       no-bg
+    @Tags       no background
+    @Example    <div class="bg-blue no-bg">Background originally blue, but no-bg added</div>
+
+
+    @Comments   Hide background.
+*/
+.no-bg {
+  background: none !important;
+}
+/**
+    @Name       bg-pos-center
+    @Tags       background, position, top, center
+    @Example    <div class="bg-pos-center border" style="height:150px; width:150px; background:url(https://cdn4.iconfinder.com/data/icons/48x48-free-object-icons/48/Butterfly.png)">&nbsp;</div>
+    @Comments   Pin the background image to the top center
+*/
+.bg-pos-center {
+  background-position: center top !important;
+  background-repeat: no-repeat !important;
+}
+/* usually a centered image is not repeated */
+/* ------------- GRAPHICS ------------- */
+/**
+    @Name       translate-z
+    @Tags       translate-z, translate-z
+    @Example    <div class="translate-z">translate-z tells the graphics processing engine to promote this layer separately</div>
+    @Comments   This sometimes helps with rendering issues.
+*/
+.translate-z {
+  -webkit-transform: translatez(0);
+  -moz-transform: translatez(0);
+  -ms-transform: translatez(0);
+  -o-transform: translatez(0);
+  transform: translatez(0);
+}
+/* ------------- LINES ------------- */
+/**
+    @Name       horizontal-line
+    @Tags       line, horizontal
+    @Example    <br><div class="horizontal-line">&nbsp;</div><br><div class="horizontal-line border-width-3">&nbsp;</div><br><div class="horizontal-line border-blue">&nbsp;</div><br><div class="horizontal-line border-blue border-width-3">&nbsp;</div><br>
+    @Comments
+*/
+.horizontal-line {
+  height: 0;
+  border-bottom: 1px solid #dddddd;
+  line-height: 0;
+  font-size: 0;
+}
+/* ------------- RESPONSIVE BEHAVIOR (RWD) ------------- */
+/* SCREEN XS - < 768px */
+@media all and (max-width: 767px) {
+  /**
+      @Name       responsive-debug
+      @Tags       rwd, responsive, debug
+      @Example    <div class="responsive-debug"></div>
+      @Comments   Debug line to see which breakpoint the width is for responsive designs.
+  */
+  .responsive-debug:after {
+    content: "SCREEN XS (<768px)";
+  }
+  /**
+      @Name       container-width-{screen}
+      @Tags       rwd, responsive, container, width, max-width
+      @Example    <div class="top-10-xs">Top padding on SCREEN XS</div><br><div class="top-10-sm">Top padding on SCREEN SM</div><br><div class="top-10-md">Top padding on SCREEN MED</div>
+      @Comments   Set max-width to the breakpoint.  Similar to Bootstrap's "container" class but only applied for a specific screen.
+  */
+  .container-width-xs {
+    /*fluid, no max width*/
+  }
+  /**
+      @Name       top-{#}-{screen}, bottom-{#}-{screen}, left-{#}-{screen}, right-{#}-{screen}
+      @Tags       rwd, responsive, padding
+      @Example    <div class="top-10-xs">Top padding on SCREEN XS</div><br><div class="top-10-sm">Top padding on SCREEN SM</div><br><div class="top-10-md">Top padding on SCREEN MED</div>
+      @Comments   Add padding for a specific screen size.  Numbers: 10, 20.  Screens: xs, sm, med.   (Class names are: top-10-xs, top-20-xs, bottom-10-xs, bottom-20-xs, left-10-xs, left-20-xs, right-10-xs, right-20-xs, top-10-sm, top-20-sm, bottom-10-sm, bottom-20-sm, left-10-sm, left-20-sm, right-10-sm, right-20-sm, top-10-md, top-20-md, bottom-10-md, bottom-20-md, left-10-md, left-20-md, right-10-md, right-20-md)
+  */
+  .top-10-xs {
+    padding-top: 10px;
+  }
+  .top-20-xs {
+    padding-top: 20px;
+  }
+  .bottom-10-xs {
+    padding-bottom: 10px;
+  }
+  .bottom-20-xs {
+    padding-bottom: 20px;
+  }
+  .left-10-xs {
+    padding-left: 10px;
+  }
+  .left-20-xs {
+    padding-left: 20px;
+  }
+  .right-10-xs {
+    padding-right: 10px;
+  }
+  .right-20-xs {
+    padding-right: 20px;
+  }
+  /**
+      @Name       left-{screen}, clear-left-{screen}, right-{screen}, clear-right-{screen}
+      @Tags       rwd, responsive, left, right, float
+      @Example    <div class="right-md">Right float on SCREEN MED</div>
+      @Comments   Add or clear a right or left float for a specific screen size.  Screens: xs, sm, med.   (Class names are: left-xs, clear-left-xs, right-xs, clear-right-xs, left-sm, clear-left-sm, right-sm, clear-right-sm, left-md, clear-left-md, right-md, clear-right-md)
+  */
+  .pull-left-xs {
+    float: left;
+  }
+  .clear-left-xs {
+    clear: left;
+  }
+  .pull-right-xs {
+    float: right;
+  }
+  .clear-right-xs {
+    clear: right;
+  }
+  /**
+      @Name       center-{screen},
+      @Tags       rwd, responsive, center, image, text
+      @Example    <div class="center-md">Center text SCREEN MED</div><br>Image is centered for SCREEN MED<br><img class="center-md" src="https://cdn4.iconfinder.com/data/icons/48x48-free-object-icons/48/Butterfly.png">
+      @Comments   Center text or an image for a specific screen size.  Screens: xs, sm, med.   (Class names are: center-xs, center-sm, center-md)
+  */
+  .center-xs {
+    text-align: center;
+  }
+  img.center-xs {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /**
+      @Name       no-bg-{screen},
+      @Tags       rwd, responsive, hide, background
+      @Example    <div class="no-bg-md" style="">Hide background for SCREEN MED</div>
+      @Comments   Hide a background image for a specific screen size.  Screens: xs, sm, med.   (Class names are: no-bg-xs, no-bg-sm, no-bg-md)
+  */
+  .no-bg-xs {
+    background: none !important;
+  }
+  /**
+      @Name       border-all-none-{screen},
+      @Tags       rwd, responsive, hide, border
+      @Example    <div class="border-all border-all-none-md">Hide border for SCREEN MED</div>
+      @Comments   Hide the border for a specific screen size.  Screens: xs, sm, med.   (Class names are: border-all-none-xs, border-all-none-sm, border-all-none-md)
+  */
+  .border-all-none-xs {
+    border: none !important;
+  }
+  /**
+      @Name       flush-margin-{screen}, flush-padding-{screen}, flush-all-{screen}, flush-padding-left-{screen}
+      @Tags       rwd, responsive, flush, margin, padding
+      @Example    <div class="padding-all-10 flush-padding-md">Remove padding for SCREEN MED</div><br><div class="margin-all-10 flush-margin-md">Remove margin for SCREEN MED</div>
+                  <br><div class="margin-all-10 padding-all-10 flush-all-md">Remove padding and margin for SCREEN MED</div>
+      @Comments   Remove margin and/or padding for a specific screen size.  Screens: xs, sm, med.   (Class names are: flush-margin-xs, flush-padding-xs, flush-all-xs, flush-padding-left-xs, flush-margin-sm, flush-padding-sm, flush-all-sm, flush-padding-left-sm, flush-margin-md, flush-padding-md, flush-all-md, flush-padding-left-md)
+  */
+  .flush-margin-xs {
+    margin: 0 !important;
+  }
+  .flush-padding-xs {
+    padding: 0 !important;
+  }
+  .flush-all-xs {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .flush-padding-left-xs {
+    padding-left: 0 !important;
+  }
+  .flush-padding-right-xs {
+    padding-right: 0 !important;
+  }
+  /**
+      @Name       font-{#}-{screen},
+      @Tags       rwd, responsive, font, flex, size
+      @Example    <h2 class="font-22-xs">H2 has font-22-xs</h2><h2 class=".font-18-xs">H2 has .font-18-xs</h2>
+      @Comments   Change the font size for a certain screen.  (Class names are: font-22-xs, .font-18-xs)
+  */
+  .font-22-xs {
+    font-size: 24px;
+  }
+  .font-18-xs {
+    font-size: 18px;
+  }
+}
+/* SCREEN SM - 768px */
+@media all and (min-width: 768px) and (max-width: 991px) {
+  .responsive-debug:after {
+    content: "SCREEN SM (768-991px)";
+  }
+  .container-width-sm {
+    max-width: 750px;
+  }
+  .top-10-sm {
+    padding-top: 10px;
+  }
+  .top-20-sm {
+    padding-top: 20px;
+  }
+  .bottom-10-sm {
+    padding-bottom: 10px;
+  }
+  .bottom-20-sm {
+    padding-bottom: 20px;
+  }
+  .left-10-sm {
+    padding-left: 10px;
+  }
+  .left-20-sm {
+    padding-left: 20px;
+  }
+  .right-10-sm {
+    padding-right: 10px;
+  }
+  .right-20-sm {
+    padding-right: 20px;
+  }
+  .pull-left-sm {
+    float: left;
+  }
+  .clear-left-sm {
+    clear: left;
+  }
+  .pull-right-sm {
+    float: right;
+  }
+  .clear-right-sm {
+    clear: right;
+  }
+  .center-sm {
+    text-align: center;
+  }
+  img.center-sm {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .no-bg-sm {
+    background: none !important;
+  }
+  .border-all-none-sm {
+    border: none !important;
+  }
+  .flush-margin-sm {
+    margin: 0 !important;
+  }
+  .flush-padding-sm {
+    padding: 0 !important;
+  }
+  .flush-all-sm {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .flush-padding-left-sm {
+    padding-left: 0 !important;
+  }
+  .flush-padding-right-sm {
+    padding-right: 0 !important;
+  }
+  .font-22-sm {
+    font-size: 24px;
+  }
+  .font-18-sm {
+    font-size: 18px;
+  }
+}
+/* SCREEN MED - 992px */
+@media all and (min-width: 992px) {
+  .responsive-debug:after {
+    content: "SCREEN MED (992+px)";
+  }
+  .container-width-md {
+    max-width: 970px;
+  }
+  .top-10-md {
+    padding-top: 10px;
+  }
+  .top-20-md {
+    padding-top: 20px;
+  }
+  .bottom-10-md {
+    padding-bottom: 10px;
+  }
+  .bottom-20-md {
+    padding-bottom: 20px;
+  }
+  .left-10-md {
+    padding-left: 10px;
+  }
+  .left-20-md {
+    padding-left: 20px;
+  }
+  .right-10-md {
+    padding-right: 10px;
+  }
+  .right-20-md {
+    padding-right: 20px;
+  }
+  .pull-left-md {
+    float: left;
+  }
+  .clear-left-md {
+    clear: left;
+  }
+  .pull-right-md {
+    float: right;
+  }
+  .clear-right-md {
+    clear: right;
+  }
+  .center-md {
+    text-align: center;
+  }
+  img.center-md {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .no-bg-md {
+    background: none !important;
+  }
+  .border-all-none-md {
+    border: none !important;
+  }
+  .flush-margin-md {
+    margin: 0 !important;
+  }
+  .flush-padding-md {
+    padding: 0 !important;
+  }
+  .flush-all-md {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .flush-padding-left-md {
+    padding-left: 0 !important;
+  }
+  .flush-padding-right-md {
+    padding-right: 0 !important;
+  }
+  .font-22-md {
+    font-size: 24px;
+  }
+  .font-18-md {
+    font-size: 18px;
+  }
+}
+/* 
+
+File: global-www.less
+
+This contains CSS shared among the "www" app/site.
+
+*/

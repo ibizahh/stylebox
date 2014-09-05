@@ -1,0 +1,78 @@
+        .csl-heading {margin:10px 0 0 20px; font-size:16px; font-weight:bold; color:#444;}
+        .csl-options {margin:10px 0 0 20px; font-size:14px; color:#444;}
+
+        /* "a" tags */
+        #csl #csl-filter a,
+        #csl #csl-results-format a,
+        #csl .csl-details a {color:#326DB5; color:#ee9323; color:#0C91CE; text-decoration:none; outline:none; }
+
+        #csl #csl-filter a:hover,
+        #csl #csl-results-format a:hover,
+        #csl .csl-details a:hover {text-decoration:underline;}
+
+        #csl #csl-filter a:visited,
+        #csl #csl-results-format a:visited,
+        #csl .csl-details a:visited {color:#0C91CE;}
+
+        #csl .csl-details a.csl-show-details,
+        #csl .csl-details a.csl-show-details:visited {color:#444;}
+
+        /* color and font */
+        #csl #csl-filter,
+        #csl #csl-filter-summary,
+        #csl #csl-results-format,
+        #csl .csl-details {font-family:Tahoma; font-size:14px; color:#444; position:relative;}
+        #csl #csl-filter-summary {font-weight:bold;}
+        #csl .csl-filter-desc {font-weight:normal; font-size:11px; line-height:125%; padding-top:5px;}
+
+        #csl {margin:20px;}
+        #csl #csl-filter {float:left; width:200px; -moz-border-radius:10px; -webkit-border-radius:10px; border:2px solid #aaa;; margin-right:20px; padding:10px 0 20px 0;}
+        #csl .csl-tag-label {color:#fff; background-color:#aaa; font-weight:bold; margin:20px 0 10px 0; padding:5px 15px;}
+        #csl .csl-tag-list {padding-left:10px;}
+        #csl .csl-val-count {color:#999; font-size:11px;}
+        #csl .csl-view-more {display:block; padding:4px 0 0 15px;}
+        #csl .csl-tag-more {display:none; border-top:1px solid #aaa; margin:5px 15px 0 10px; padding-top:5px;}
+        #csl #csl-search {width:120px;}
+        #csl .csl-search-area {margin-left:10px;}
+        #csl .csl-search-desc {font-size:11px; line-height:125%; padding-top:5px;}
+        #csl #csl-filter a.csl-filter-filename {display:inline-block; vertical-align:top; font-size:11px; width:125px; word-wrap:break-word; color:#444;}
+        #csl #csl-filter a.csl-filter-filename:visited {color:#444;}
+        #csl #csl-filter .csl-filter-more-links {font-size:12px;}
+
+        #csl #csl-results {float:left; width:900px; background-color:#aaa; padding:15px; -moz-border-radius:10px; -webkit-border-radius:10px; }
+        #csl #csl-filter-summary {float:left; margin-bottom:10px; width:650px;}
+        #csl #csl-results-format {float:right;}
+        #csl #csl-results-format a.selected {color:#444; font-weight:bold;}
+        #csl #csl-results-area {clear:both; border-top:solid 1px #888; padding-top:10px;}
+        #csl .csl-item  {}
+
+        #csl .csl-results-area-grid-small .csl-item {float:left; width:280px; margin:10px;}
+        #csl .csl-results-area-grid-large .csl-item {float:left; width:425px; margin:12px;}
+        #csl .csl-results-area-list .csl-item {float:none; border-bottom:solid 1px #DDD; padding:0 0 10px 0; margin-bottom:10px;}
+
+        #csl .csl-name-outer {font-weight:bold; height:40px; text-decoration:underline; font-size:14px; line-height:16px;}
+        #csl .csl-name {border-bottom:solid 1px #ddd; text-align:center;}
+        #csl .csl-results-area-grid-small .csl-name-outer,
+        #csl .csl-results-area-grid-large .csl-name-outer {text-align:center;}
+
+        #csl .csl-example {overflow:auto; xborder:1px solid #ddd; background-color:#fff; -moz-border-radius:5px; -webkit-border-radius:5px; padding:5px;}
+        #csl .csl-results-area-grid-small .csl-example {height:200px; overflow:auto;}
+        #csl .csl-results-area-grid-large .csl-example {height:300px; overflow:auto;}
+        #csl .csl-results-area-list .csl-example {}
+
+        #csl .csl-details {font-size:12px;}
+        #csl .csl-details-popup {display:none; position:absolute; width:350px; background-color:white; border:5px solid #0C91CE; padding:10px; -moz-box-shadow:5px 5px 10px #444; -webkit-box-shadow:5px 5px 10px #444; -moz-border-radius:8px; -webkit-border-radius:8px; }
+        #csl .csl-details-popup div {margin:5px 0;}
+        #csl .csl-filename {word-wrap:break-word;}
+        #csl .csl-results-area-grid-small .csl-details-popup {top:-10px; left:200px;}
+        #csl .csl-results-area-grid-large .csl-details-popup {top:-10px; left:250px;}
+        #csl .csl-results-area-list .csl-details-popup {top:-10px; left:150px;}
+
+        #csl .csl-html-code {width:100%; height:150px; margin-top:5px; font-family:Courier; font-size:12px; padding:2px;}
+
+        #csl .csl-clearfix:after                    {content:".";display:block;height:0;clear:both;visibility:hidden;}
+        #csl .csl-clearfix                  {display: inline-block;}
+        /* Hides from IE-mac \*/
+        * html #csl .csl-clearfix               {height: 1%;}
+        #csl .csl-clearfix                  {display: block;}
+        /* End hide from IE-mac */
